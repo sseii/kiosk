@@ -1,14 +1,12 @@
 package kiosk;
 
 public class Order {
-    // 상품 객체를 담을 수 있도록
     public Product[] orderList;
     public int numProduct = 0;
     public double totalPrice = 0;
     public double sum;
     public Product[] soldProduct;
     int numOrder = 0;
-
 
     public Order() {
         this.orderList = new Product[100];
@@ -57,11 +55,12 @@ public class Order {
         System.out.println("1. 주문      2. 메뉴판");
     }
 
-    public void ordering() {
+    public void ordering(Kiosk_Management km) {
         System.out.println("주문이 완료되었습니다!");
         System.out.println();
         System.out.println("대기 번호는 [ " + numOrder + " ]번 입니다.");
         System.out.println("3초 후 메뉴판으로 돌아갑니다.");
+        km.addOrder(this);
         numProduct = 0;
     }
 

@@ -30,6 +30,7 @@ public class Kiosk {
         products3[2] = new Product("Vanilla Latte", 4.5, "매장에서 직접 만든 천연 바닐라빈 시럽을 사용한 바닐라라떼");
 
         Order order = new Order();
+        Kiosk_Management km = new Kiosk_Management();
 
         Kiosk kiosk = new Kiosk();
 
@@ -43,7 +44,7 @@ public class Kiosk {
                 order.orderQuestion();
                 int orderAnswer = scan.nextInt();
                 if (orderAnswer == 1) {
-                    order.ordering();
+                    order.ordering(km);
                     try {
                         Thread.sleep(3000);
                     } catch (InterruptedException e) {
@@ -56,7 +57,21 @@ public class Kiosk {
                 if (cancelAnswer == 1) {
                     order.cancel();
                 }
-            } else if (menuAnswer == 0) {
+            } else if(menuAnswer == (menus.length + 3)){
+                //키오스크 관리 프로그램 메인 메뉴
+                km.mainShow();
+                int i = scan.nextInt();
+                if(i == 1){
+                    // 대기 주문 목록
+                    km.printOrderQueue();
+                }else if(i == 2){
+                    // 완료 주문 목록
+                }else if(i == 3){
+                    // 상품생성
+                }else if(i == 4){
+                    // 상품 삭제
+                }
+            }else if (menuAnswer == 0) {
                 order.secretShow();
                 int backAnswer = scan.nextInt();
             } else {
@@ -100,6 +115,10 @@ public class Kiosk {
         int i = menus.length;
         System.out.println((i+1) + ". Order  | 장바구니를 확인 후 주문합니다.");
         System.out.println((i+2) + ". Cancel | 진행중인 주문을 취소합니다.");
+        //키오스크 관리 프로그램을 어따 넣는건지 모르겠어서 일단 여기다 넣음
+        System.out.println("");
+        System.out.println("[ KIOSK MANAGEMENT MENU ]");
+        System.out.println((i+3) + ". Management | 키오스크 관리 프로그램으로 이동합니다.");
     }
 
     public void productShow(Product products[]) {
