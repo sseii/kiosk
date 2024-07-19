@@ -1,4 +1,4 @@
-package kiosk;
+package team1_kiosk;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package kiosk;
+package team1_kiosk;
 
 public class Order {
     public Product[] orderList;

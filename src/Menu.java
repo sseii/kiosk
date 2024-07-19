@@ -1,4 +1,4 @@
-package kiosk;
+package team1_kiosk;
 
 public class Menu {
     // 이름, 설명 필드를 가지는 클래스

@@ -1,4 +1,4 @@
-package kiosk;
+package team1_kiosk;
 
 public class Product extends Menu {
     // 이름, 가격, 설명 필드를 가지는 클래스
